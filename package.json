@@ -4,7 +4,7 @@
   "description": "Some functions for building tree by node's path",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development ts-node --files -P ./scripts/tsconfig.json ./src/test.ts --open",
+    "dev": "cross-env NODE_ENV=development ts-node --files -P ./scripts/tsconfig.json ./src/test.ts",
     "build": "tsc ./src/index.ts --outFile ./index.js --module amd"
   },
   "dependencies": {
