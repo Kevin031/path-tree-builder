@@ -1,0 +1,14 @@
+{
+	"key": "root",
+	"children": {
+		"a": {
+			"key": "a",
+			"children": {
+				"b": {
+					"key": "b",
+					"children": {}
+				}
+			}
+		}
+	}
+}

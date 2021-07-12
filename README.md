@@ -1,30 +1,98 @@
-# 一个开箱即用的轻量级Typescript+React脚手架
+# 根据节点信息逆向生成树结构
 
-## 特点
+调用示例
 
-1. webpack相关配置文件都采用typescript编写
-2. 轻量，可以按需扩展
+1. 根据子节点的路径构建
 
-## 准备工作
+```javascript
+import { buildTreeByPath } from 'path-tree-builder'
 
-全局安装`ts-node`、`typescript`，作为终端运行环境
+const input = [
+  {
+    key: 'c',
+    path: 'a.b',
+  },
+  {
+    key: 'child',
+    path: 'parent.fad.sad'
+  },
+  {
+    key: 'd',
+    path: 'a.c.d'
+  }
+]
 
+const output = buildTreeByPath(input)
+// {
+//   "key": "root",
+//   "children": {
+//     "a": {
+//       "key": "a",
+//       "children": {
+//         "b": {
+//           "key": "b",
+//           "children": {}
+//         },
+//         "c": {
+//           "key": "c",
+//           "children": {
+//             "d": {
+//               "key": "d",
+//               "children": {}
+//             }
+//           }
+//         }
+//       }
+//     },
+//     "parent": {
+//       "key": "parent",
+//       "children": {
+//         "fad": {
+//           "key": "fad",
+//           "children": {
+//             "sad": {
+//               "key": "sad",
+//               "children": {}
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 ```
-npm i -g ts-node typescript
+
+2. 根据追溯parent对象构建
+
+```javascript
+import { buildTreeByParentNode } from 'path-tree-builder'
+
+const input = [
+  {
+    key: 'c',
+    parent: {
+      key: 'b',
+      parent: {
+        key: 'a',
+        parent: null
+      }
+    }
+  }
+]
+
+const output = buildTreeByParentNode(input)
+// {
+//   "key": "root",
+//   "children": {
+//     "a": {
+//       "key": "a",
+//       "children": {
+//         "b": {
+//           "key": "b",
+//           "children": {}
+//         }
+//       }
+//     }
+//   }
+// }
 ```
-
-安装项目依赖
-
-```
-npm install
-```
-
-## 启动项目
-
-```
-npm run dev
-```
-
-## 后续更新
-
-考虑扩展为支持服务端初始化

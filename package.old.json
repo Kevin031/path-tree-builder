@@ -1,8 +1,11 @@
 {
-  "name": "path-tree-builder",
+  "name": "webpack-react-pratice",
   "version": "1.0.0",
-  "description": "Some functions for building tree by node's path",
   "main": "index.js",
+  "private": true,
+  "author": "Kevin031",
+  "license": "ISC",
+  "description": "Some functions for building tree by node's path",
   "scripts": {
     "dev": "cross-env NODE_ENV=development ts-node --files -P ./scripts/tsconfig.json ./src/test.ts --open",
     "build": "tsc ./src/index.ts --outFile ./index.js --module amd"
@@ -19,18 +22,5 @@
     "typescript": "^4.3.5",
     "webpack": "^5.42.0",
     "webpack-merge": "^5.8.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Kevin031/path-tree-builder.git"
-  },
-  "keywords": [
-    "tree"
-  ],
-  "author": "kevin031",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Kevin031/path-tree-builder/issues"
-  },
-  "homepage": "https://github.com/Kevin031/path-tree-builder#readme"
+  }
 }
